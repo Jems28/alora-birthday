@@ -1,0 +1,6 @@
+{
+  "name": "Alora's First Birthday",
+  "description": "Undangan digital ulang tahun pertama Alora Hazelika Aderyn.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

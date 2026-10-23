@@ -1,0 +1,1009 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+    <title>Alora's First Birthday 🎂🩷</title>
+    <meta name="description" content="Undangan ulang tahun pertama Alora Hazelika Aderyn." />
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Alora's First Birthday 🎂🩷" />
+    <meta property="og:description" content="Undangan ulang tahun pertama Alora Hazelika Aderyn. Buka kartu undangan digital untuk info lengkap acara." />
+    <meta property="og:image" content="/assets/alora-08.jpg" />
+    <meta property="og:type" content="website" />
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Alora's First Birthday 🎂🩷" />
+    <meta name="twitter:description" content="Undangan ulang tahun pertama Alora Hazelika Aderyn." />
+    <meta name="twitter:image" content="/assets/alora-08.jpg" />
+    
+    <!-- Theme & App Icons -->
+    <meta name="theme-color" content="#FFF0F5" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦄</text></svg>" />
+    
+    <!-- Google Fonts (Clean, Modern, Readable Fonts Only) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Background Audio Element -->
+    <audio id="birthday-audio" loop preload="auto">
+      <source src="./assets/birthday-music.mp3" type="audio/mpeg" />
+      <source src="/assets/birthday-music.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- LOADING SCREEN -->
+    <div id="loading-screen" class="loading-screen" aria-live="polite">
+      <div class="loading-card">
+        <div class="loading-unicorn-icon">
+          <svg viewBox="0 0 100 100" class="unicorn-svg-mini" aria-hidden="true">
+            <ellipse cx="50" cy="58" rx="26" ry="24" fill="#FFF0F5" stroke="#F8BBD0" stroke-width="2"/>
+            <circle cx="50" cy="42" r="22" fill="#FFFFFF" stroke="#F8BBD0" stroke-width="2"/>
+            <polygon points="50,14 45,30 55,30" fill="#FFD54F" stroke="#FFA726" stroke-width="1.5"/>
+            <path d="M34,26 C36,18 42,22 42,28" stroke="#F48FB1" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path d="M58,26 C56,18 50,22 50,28" stroke="#CE93D8" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <circle cx="43" cy="42" r="3.5" fill="#4A3E47"/>
+            <circle cx="57" cy="42" r="3.5" fill="#4A3E47"/>
+            <circle cx="44.2" cy="41" r="1.2" fill="#FFFFFF"/>
+            <circle cx="58.2" cy="41" r="1.2" fill="#FFFFFF"/>
+            <ellipse cx="38" cy="47" rx="3.5" ry="2" fill="#FF80AB" opacity="0.6"/>
+            <ellipse cx="62" cy="47" rx="3.5" ry="2" fill="#FF80AB" opacity="0.6"/>
+            <path d="M47,48 Q50,51 53,48" stroke="#F06292" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+        <p class="loading-text">Menyiapkan undangan Alora...</p>
+        <div class="loading-bar-track">
+          <div class="loading-bar-fill"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FULLSCREEN PHOTO LIGHTBOX -->
+    <div id="photo-lightbox" class="photo-lightbox hidden" role="dialog" aria-modal="true" aria-label="Lihat Foto Alora">
+      <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+      <div class="lightbox-modal-content">
+        <button id="lightbox-close-btn" class="lightbox-close-btn" aria-label="Tutup foto">✕ Tutup</button>
+        <div class="lightbox-image-wrapper">
+          <img id="lightbox-img" src="" alt="Foto Alora Fullscreen" class="lightbox-img" />
+        </div>
+        <div class="lightbox-controls">
+          <button id="lightbox-prev-btn" class="lightbox-nav-btn" aria-label="Foto sebelumnya">‹</button>
+          <span id="lightbox-counter" class="lightbox-counter">1 / 8</span>
+          <button id="lightbox-next-btn" class="lightbox-nav-btn" aria-label="Foto berikutnya">›</button>
+        </div>
+        <p id="lightbox-caption" class="lightbox-caption"></p>
+      </div>
+    </div>
+
+    <!-- FLOATING MUSIC BUTTON -->
+    <button id="music-toggle-btn" class="music-toggle-btn hidden" aria-label="Nyalakan atau matikan musik latar" title="Nyalakan / Matikan Musik">
+      <span class="music-icon-symbol">🎵</span>
+      <span class="music-waves">
+        <span class="bar bar-1"></span>
+        <span class="bar bar-2"></span>
+        <span class="bar bar-3"></span>
+      </span>
+      <span id="music-status-text" class="music-status-text">Musik On</span>
+    </button>
+
+    <!-- FLOATING BACK TO TOP BUTTON -->
+    <button id="floating-top-btn" class="floating-top-btn hidden" aria-label="Kembali ke atas" title="Kembali ke atas">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m18 15-6-6-6 6"/>
+      </svg>
+    </button>
+
+    <!-- UNICORN EASTER EGG MODAL -->
+    <div id="easter-egg-modal" class="easter-egg-modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="easter-egg-backdrop"></div>
+      <div class="easter-egg-content">
+        <div class="easter-egg-sparkles" aria-hidden="true">✨ 💖 🦄 🌸 🎂</div>
+        <div class="easter-egg-unicorn-container">
+          <svg viewBox="0 0 120 120" class="unicorn-svg-easter" aria-hidden="true">
+            <ellipse cx="60" cy="74" rx="32" ry="28" fill="#FFF5F8" stroke="#F48FB1" stroke-width="2.5"/>
+            <ellipse cx="42" cy="98" rx="8" ry="6" fill="#F8BBD0"/>
+            <ellipse cx="78" cy="98" rx="8" ry="6" fill="#F8BBD0"/>
+            <path d="M26,76 C16,70 18,88 28,84" stroke="#CE93D8" stroke-width="6" stroke-linecap="round" fill="none"/>
+            <circle cx="60" cy="46" r="28" fill="#FFFFFF" stroke="#F48FB1" stroke-width="2.5"/>
+            <polygon points="60,10 53,30 67,30" fill="url(#hornGrad)" stroke="#FFA726" stroke-width="1.5"/>
+            <path d="M40,26 C44,14 52,18 50,30" stroke="#F48FB1" stroke-width="5" stroke-linecap="round" fill="none"/>
+            <path d="M72,26 C68,14 60,18 62,30" stroke="#CE93D8" stroke-width="5" stroke-linecap="round" fill="none"/>
+            <path d="M48,46 Q53,40 58,46" stroke="#4A3E47" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path d="M68,46 Q73,40 78,46" stroke="#4A3E47" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path d="M57,41 L61,37" stroke="#4A3E47" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M78,41 L82,37" stroke="#4A3E47" stroke-width="1.8" stroke-linecap="round"/>
+            <ellipse cx="44" cy="54" rx="5" ry="3" fill="#FF80AB" opacity="0.7"/>
+            <ellipse cx="80" cy="54" rx="5" ry="3" fill="#FF80AB" opacity="0.7"/>
+            <path d="M58,56 Q63,62 68,56" stroke="#E91E63" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <path d="M76,68 Q88,58 92,68" stroke="#F8BBD0" stroke-width="7" stroke-linecap="round" fill="none"/>
+            <defs>
+              <linearGradient id="hornGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FFF9C4" />
+                <stop offset="50%" stop-color="#FFD54F" />
+                <stop offset="100%" stop-color="#FFB74D" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <h3 id="modal-title" class="easter-egg-title">YEAY! 🦄🩷</h3>
+        <p class="easter-egg-desc">Kamu menemukan kejutan kecil untuk Alora!</p>
+        <p class="easter-egg-sub">Terima kasih sudah begitu perhatian dan penuh kasih untuk Alora! ✨</p>
+        <button id="close-easter-egg-btn" class="close-modal-btn">Tutup 🌸</button>
+      </div>
+    </div>
+
+    <!-- MAIN APP WRAPPER -->
+    <div class="app-viewport">
+
+      <!-- ================================================== -->
+      <!-- COVER SCREEN (Shown initially, ONLY element visible) -->
+      <!-- ================================================== -->
+      <section id="cover-screen" class="cover-screen" aria-label="Cover Undangan Ulang Tahun Alora">
+        
+        <!-- Decorative Ambient Background Elements -->
+        <div class="ambient-decorations" aria-hidden="true">
+          <div class="cloud cloud-1">☁️</div>
+          <div class="cloud cloud-2">☁️</div>
+          <div class="cloud cloud-3">☁️</div>
+          
+          <div class="balloon balloon-pink">
+            <span class="balloon-body"></span>
+            <span class="balloon-string"></span>
+          </div>
+          <div class="balloon balloon-peach">
+            <span class="balloon-body"></span>
+            <span class="balloon-string"></span>
+          </div>
+          <div class="balloon balloon-lavender">
+            <span class="balloon-body"></span>
+            <span class="balloon-string"></span>
+          </div>
+          
+          <span class="sparkle sp-1">✨</span>
+          <span class="sparkle sp-2">⭐</span>
+          <span class="sparkle sp-3">💖</span>
+          <span class="sparkle sp-4">✨</span>
+          <span class="sparkle sp-5">⭐</span>
+          <span class="sparkle sp-6">🌸</span>
+        </div>
+
+        <!-- Cover Center Digital Invitation Card -->
+        <div class="cover-card-container">
+          <div class="cover-card">
+            
+            <!-- Card Ornamental Top Crest -->
+            <div class="cover-crest">
+              <span class="crest-dot">🌸</span>
+              <span class="crest-line"></span>
+              <span class="crest-crown">👑</span>
+              <span class="crest-line"></span>
+              <span class="crest-dot">🌸</span>
+            </div>
+
+            <!-- Guest Personalization Tag -->
+            <div class="guest-salutation-box">
+              <span class="salutation-sub">SPECIAL INVITATION FOR</span>
+              <h2 class="guest-name-cover" id="cover-guest-name">HELLO, DEAR GUEST</h2>
+            </div>
+
+            <!-- Invitation Subtext -->
+            <p class="cover-invitation-text">YOU ARE INVITED TO MY BIRTHDAY</p>
+
+            <!-- Mascot Unicorn (Bouncing & Smiling) -->
+            <div class="cover-unicorn-wrapper unicorn-interactive" data-unicorn="true" title="Klik aku! 🦄">
+              <div class="unicorn-speech-bubble">Halo! 🦄</div>
+              <svg viewBox="0 0 120 120" class="unicorn-svg" aria-label="Mascot Pink Unicorn Alora">
+                <ellipse cx="60" cy="74" rx="30" ry="26" fill="#FFF7FA" stroke="#F8BBD0" stroke-width="2.5"/>
+                <ellipse cx="44" cy="97" rx="7" ry="5.5" fill="#F8BBD0"/>
+                <ellipse cx="76" cy="97" rx="7" ry="5.5" fill="#F8BBD0"/>
+                <ellipse cx="34" cy="80" rx="6" ry="5" fill="#FCE4EC"/>
+                <path d="M28,74 C16,68 18,86 28,82" stroke="#CE93D8" stroke-width="5" stroke-linecap="round" fill="none"/>
+                <circle cx="60" cy="46" r="26" fill="#FFFFFF" stroke="#F8BBD0" stroke-width="2.5"/>
+                <polygon points="60,12 54,30 66,30" fill="url(#coverHornGrad)" stroke="#FFA726" stroke-width="1.5"/>
+                <path d="M42,28 C45,18 52,22 50,32" stroke="#F48FB1" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+                <path d="M70,28 C67,18 60,22 62,32" stroke="#CE93D8" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+                <polygon points="40,32 34,22 46,26" fill="#FFF0F5" stroke="#F8BBD0" stroke-width="1.8"/>
+                <polygon points="80,32 86,22 74,26" fill="#FFF0F5" stroke="#F8BBD0" stroke-width="1.8"/>
+                <g class="unicorn-eyes">
+                  <circle cx="49" cy="46" r="3.5" fill="#4A3E47"/>
+                  <circle cx="71" cy="46" r="3.5" fill="#4A3E47"/>
+                  <circle cx="50" cy="45" r="1.2" fill="#FFFFFF"/>
+                  <circle cx="72" cy="45" r="1.2" fill="#FFFFFF"/>
+                </g>
+                <ellipse cx="43" cy="51" rx="4.5" ry="2.5" fill="#FF80AB" opacity="0.7"/>
+                <ellipse cx="77" cy="51" rx="4.5" ry="2.5" fill="#FF80AB" opacity="0.7"/>
+                <path d="M57,53 Q60,57 63,53" stroke="#E91E63" stroke-width="2" stroke-linecap="round" fill="none"/>
+                <polygon points="44,28 46,24 48,28 51,26 49,30 52,33 47,32 46,36 43,32 39,34 42,30 39,27" fill="#FFD54F" stroke="#FFA726" stroke-width="0.8"/>
+                <defs>
+                  <linearGradient id="coverHornGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#FFF9C4" />
+                    <stop offset="50%" stop-color="#FFD54F" />
+                    <stop offset="100%" stop-color="#FFB74D" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+
+            <!-- Birthday Celebrant Main Typography: Alora (Snowball) + Hazelika Aderyn (Clean) -->
+            <div class="celebrant-title-group">
+              <h1 class="alora-display-title">
+                <span class="alora-snowball-name">Alora</span>
+                <span class="alora-subtitle-name">Hazelika Aderyn</span>
+              </h1>
+              <div class="first-birthday-badge">
+                <span class="badge-star">✨</span>
+                <span class="badge-text">MY FIRST BIRTHDAY</span>
+                <span class="badge-star">✨</span>
+              </div>
+            </div>
+
+            <!-- Primary Action Button: BUKA UNDANGAN -->
+            <div class="open-action-box">
+              <button id="open-invitation-btn" class="open-invitation-btn" aria-label="Buka undangan ulang tahun digital Alora">
+                <span class="btn-shimmer"></span>
+                <span class="btn-content">
+                  <span class="btn-icon">💌</span>
+                  <span class="btn-label">BUKA UNDANGAN</span>
+                </span>
+              </button>
+              <p class="tap-to-open-hint">
+                <span class="hint-arrow">👇</span> Tap to open <span class="hint-arrow">👇</span>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================== -->
+      <!-- INVITATION MAIN CONTENT (Hidden until button click) -->
+      <!-- ================================================== -->
+      <main id="invitation-content" class="invitation-content hidden" aria-label="Isi Undangan Digital Alora">
+        
+        <!-- ================================================== -->
+        <!-- SCENE 1 — PEMBUKA (Royal Greeting Card) -->
+        <!-- ================================================== -->
+        <section id="scene-1" class="scene scene-pembuka" data-scene="1">
+          <div class="scene-container">
+            
+            <div class="scene-header-card">
+              <span class="bismillah-pill">Assalamu'alaikum Warahmatullahi Wabarakatuh</span>
+              
+              <h2 class="scene-greeting">
+                Halo, <span class="guest-name-insert guest-colored">Sahabat</span>! 🩷
+              </h2>
+              
+              <p class="scene-invitation-lead">
+                Dengan penuh rasa syukur dan kebahagiaan, kami sekeluarga mengundang 
+                <strong class="guest-name-insert guest-bold">Bapak/Ibu/Sahabat</strong> untuk hadir dan merayakan:
+              </p>
+              
+              <div class="main-event-title-banner">
+                <span class="event-type">ULANG TAHUN PERTAMA</span>
+                <h1 class="alora-grand-name">
+                  <span class="alora-grand-snowball">Alora</span>
+                  <span class="alora-grand-clean">Hazelika Aderyn</span>
+                </h1>
+                <div class="age-banner">
+                  <span class="cake-emoji">🎂</span>
+                  <span class="age-text">1 TAHUN</span>
+                  <span class="cake-emoji">🎂</span>
+                </div>
+              </div>
+
+              <!-- Royal Invitation Seal Card with Mascot -->
+              <div class="royal-seal-card">
+                <div class="seal-icon-wrapper">
+                  <svg viewBox="0 0 100 100" class="unicorn-svg-seal">
+                    <circle cx="50" cy="50" r="45" fill="#FFF0F5" stroke="#F8BBD0" stroke-width="2.5"/>
+                    <polygon points="50,14 45,28 55,28" fill="#FFD54F" stroke="#FFA726" stroke-width="1.2"/>
+                    <circle cx="50" cy="46" r="22" fill="#FFFFFF" stroke="#F8BBD0" stroke-width="2"/>
+                    <circle cx="43" cy="45" r="3.2" fill="#4A3E47"/>
+                    <circle cx="57" cy="45" r="3.2" fill="#4A3E47"/>
+                    <circle cx="44.2" cy="44" r="1" fill="#FFFFFF"/>
+                    <circle cx="58.2" cy="44" r="1" fill="#FFFFFF"/>
+                    <ellipse cx="37" cy="50" rx="3.5" ry="2" fill="#FF80AB" opacity="0.6"/>
+                    <ellipse cx="63" cy="50" rx="3.5" ry="2" fill="#FF80AB" opacity="0.6"/>
+                    <path d="M47,52 Q50,55 53,52" stroke="#F06292" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                  </svg>
+                </div>
+                <h3 class="seal-welcome-title">Selamat Datang di Cerita Perjalanan Alora</h3>
+                <p class="seal-welcome-desc">
+                  Mari bersama mengenang setiap momen indah, tawa, dan senyum manis putri kecil kami dari hari pertama hingga genap berusia satu tahun. 🌸✨
+                </p>
+                <div class="tap-hint-pill">
+                  <span>💡 Tips: Tap pada setiap foto untuk melihat layar penuh!</span>
+                </div>
+              </div>
+
+              <!-- Companion Mascot Greeting -->
+              <div class="unicorn-greeting-banner unicorn-interactive" data-unicorn="true" title="Klik aku! 🦄">
+                <div class="mini-unicorn-avatar">
+                  <svg viewBox="0 0 100 100" class="unicorn-svg-badge">
+                    <circle cx="50" cy="50" r="44" fill="#FFF0F5" stroke="#F8BBD0" stroke-width="2"/>
+                    <polygon points="50,15 45,30 55,30" fill="#FFD54F" stroke="#FFA726" stroke-width="1.2"/>
+                    <circle cx="50" cy="52" r="24" fill="#FFFFFF" stroke="#F8BBD0" stroke-width="2"/>
+                    <circle cx="43" cy="50" r="3.2" fill="#4A3E47"/>
+                    <circle cx="57" cy="50" r="3.2" fill="#4A3E47"/>
+                    <ellipse cx="37" cy="56" rx="3.5" ry="2" fill="#FF80AB" opacity="0.6"/>
+                    <ellipse cx="63" cy="56" rx="3.5" ry="2" fill="#FF80AB" opacity="0.6"/>
+                    <path d="M47,58 Q50,61 53,58" stroke="#F06292" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                  </svg>
+                </div>
+                <p class="unicorn-greeting-text">
+                  "Yuk scroll ke bawah untuk melihat 8 foto dan cerita manis Alora~" ✨
+                </p>
+              </div>
+
+              <div class="scroll-indicator-down">
+                <span>Mulai Cerita Alora</span>
+                <div class="bounce-arrow">↓</div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ================================================== -->
+        <!-- SCENE 2 — CERITA ALORA (FOTO 1: alora-01.jpg) -->
+        <!-- ================================================== -->
+        <section id="scene-2" class="scene scene-story" data-scene="2">
+          <div class="scene-container">
+            
+            <div class="scene-badge-header">
+              <span class="chapter-number">Foto 01 dari 08</span>
+              <span class="chapter-title">Awal Kehadiran</span>
+            </div>
+
+            <div class="story-card">
+              <div class="natural-photo-frame">
+                <div class="zoom-cue-pill">🔍 Tap untuk memperbesar</div>
+                <img 
+                  src="./assets/alora-01.jpg" 
+                  alt="Alora Hazelika Aderyn saat baru lahir di Rumah Sakit Pasutri" 
+                  class="natural-scene-img gallery-lightbox-trigger"
+                  data-photo-index="0"
+                  data-photo-title="Hari Pertama di Dunia — 24 Oktober 2025"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                  onerror="this.onerror=null; this.src='/assets/alora-01.jpg';"
+                />
+              </div>
+
+              <!-- EXACT SPECIFIED TEXT -->
+              <div class="story-prose-box">
+                <p class="story-prose-date">Jumat, 24 Oktober 2025, pukul 14.23 WIB.</p>
+                <p class="story-prose-body">
+                  Di Rumah Sakit Pasutri, hadir seorang putri kecil bernama Alora Hazelika Aderyn.
+                </p>
+                <p class="story-prose-body story-prose-highlight">
+                  Sejak hari itu, dunia Papa dan Mama menjadi jauh lebih indah. ❤️
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ================================================== -->
+        <!-- SCENE 3 — ALORA KECIL (FOTO 2: alora-02.jpg) -->
+        <!-- ================================================== -->
+        <section id="scene-3" class="scene scene-story" data-scene="3">
+          <div class="scene-container">
+            
+            <div class="scene-badge-header">
+              <span class="chapter-number">Foto 02 dari 08</span>
+              <span class="chapter-title">Pelukan Penuh Cinta</span>
+            </div>
+
+            <div class="story-card">
+              <div class="natural-photo-frame">
+                <div class="zoom-cue-pill">🔍 Tap untuk memperbesar</div>
+                <img 
+                  src="./assets/alora-02.jpg" 
+                  alt="Alora kecil dalam dekapan hangat" 
+                  class="natural-scene-img gallery-lightbox-trigger"
+                  data-photo-index="1"
+                  data-photo-title="Alora Mungil dalam Dekapan"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                  onerror="this.onerror=null; this.src='/assets/alora-02.jpg';"
+                />
+              </div>
+
+              <div class="safe-decor-row">
+                <div class="unicorn-peeking-badge unicorn-interactive" data-unicorn="true" title="Klik unicorn! 🦄">
+                  <span class="decor-spark">✨</span>
+                  <span class="unicorn-peeking-icon">🦄</span>
+                  <span class="unicorn-sub-text">Alora begitu mungil & manis</span>
+                  <span class="decor-spark">💖</span>
+                </div>
+              </div>
+
+              <!-- EXACT SPECIFIED TEXT -->
+              <div class="story-prose-box">
+                <p class="story-prose-body">
+                  Dulu kamu begitu mungil dalam dekapan kami.
+                </p>
+                <p class="story-prose-body story-prose-highlight">
+                  Belum bisa berkata apa-apa, tapi kehadiranmu sudah mengajarkan kami arti cinta yang sesungguhnya.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ================================================== -->
+        <!-- SCENE 4 — PITA KECIL (FOTO 3: alora-03.jpg) -->
+        <!-- ================================================== -->
+        <section id="scene-4" class="scene scene-story" data-scene="4">
+          <div class="scene-container">
+            
+            <div class="scene-badge-header">
+              <span class="chapter-number">Foto 03 dari 08</span>
+              <span class="chapter-title">Pita Merah Muda</span>
+            </div>
+
+            <div class="story-card">
+              <div class="card-ribbon-accent">🎀 Pita Kecil Kesayangan 🎀</div>
+
+              <div class="natural-photo-frame">
+                <div class="zoom-cue-pill">🔍 Tap untuk memperbesar</div>
+                <img 
+                  src="./assets/alora-03.jpg" 
+                  alt="Alora cantik dengan pita kecil warna merah muda" 
+                  class="natural-scene-img gallery-lightbox-trigger"
+                  data-photo-index="2"
+                  data-photo-title="Wajah Mungil dengan Pita Merah Muda"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                  onerror="this.onerror=null; this.src='/assets/alora-03.jpg';"
+                />
+              </div>
+
+              <!-- EXACT SPECIFIED TEXT -->
+              <div class="story-prose-box">
+                <p class="story-prose-body story-prose-quote">
+                  "Dengan wajah mungil dan pita kecilmu, kamu selalu punya cara untuk membuat Papa dan Mama jatuh cinta berkali-kali."
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ================================================== -->
+        <!-- SCENE 5 — TATAPAN KECIL (FOTO 4: alora-04.jpg) -->
+        <!-- ================================================== -->
+        <section id="scene-5" class="scene scene-story" data-scene="5">
+          <div class="scene-container">
+            
+            <div class="scene-badge-header">
+              <span class="chapter-number">Foto 04 dari 08</span>
+              <span class="chapter-title">Mata Indah Alora</span>
+            </div>
+
+            <div class="story-card">
+              <div class="natural-photo-frame halo-light-border">
+                <div class="zoom-cue-pill">🔍 Tap untuk memperbesar</div>
+                <img 
+                  src="./assets/alora-04.jpg" 
+                  alt="Tatapan mata bening dan manis Alora" 
+                  class="natural-scene-img gallery-lightbox-trigger"
+                  data-photo-index="3"
+                  data-photo-title="Tatapan Lembut Putri Kecil Papa Mama"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                  onerror="this.onerror=null; this.src='/assets/alora-04.jpg';"
+                />
+              </div>
+
+              <div class="safe-sparkle-strip">
+                <span>✨</span> <span>🌟</span> <span>Tumbuhlah Bahagia, Nak</span> <span>🌟</span> <span>✨</span>
+              </div>
+
+              <!-- EXACT SPECIFIED TEXT -->
+              <div class="story-prose-box">
+                <p class="story-prose-body">
+                  Dari tatapan kecilmu, kami melihat awal dari perjalanan panjangmu.
+                </p>
+                <p class="story-prose-body story-prose-highlight">
+                  Tumbuhlah dengan bahagia, Nak. Papa dan Mama selalu mendoakanmu.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ================================================== -->
+        <!-- SCENE 6 — SENYUM ALORA (FOTO 5: alora-05.jpg) -->
+        <!-- ================================================== -->
+        <section id="scene-6" class="scene scene-story" data-scene="6">
+          <div class="scene-container">
+            
+            <div class="scene-badge-header">
+              <span class="chapter-number">Foto 05 dari 08</span>
+              <span class="chapter-title">Kebahagiaan Terbesar</span>
+            </div>
+
+            <div class="story-card floating-card-motion">
+              <div class="natural-photo-frame">
+                <div class="zoom-cue-pill">🔍 Tap untuk memperbesar</div>
+                <img 
+                  src="./assets/alora-05.jpg" 
+                  alt="Senyum manis dan ceria Alora" 
+                  class="natural-scene-img gallery-lightbox-trigger"
+                  data-photo-index="4"
+                  data-photo-title="Senyum Manis Alora"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                  onerror="this.onerror=null; this.src='/assets/alora-05.jpg';"
+                />
+              </div>
+
+              <!-- EXACT SPECIFIED TEXT -->
+              <div class="story-prose-box">
+                <p class="story-prose-body">
+                  Senyum sederhana darimu selalu menjadi kebahagiaan terbesar kami.
+                </p>
+                <p class="story-prose-body story-prose-highlight">
+                  Semoga senyum itu selalu menemani setiap langkah hidupmu.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ================================================== -->
+        <!-- SCENE 7 — EKSPRESI LUCU (FOTO 6: alora-06.jpg) -->
+        <!-- PHOTO STICKER: FOTO ASLI UTUH, BORDER PUTIH 8px, RADIUS 20px, TANPA CROP -->
+        <!-- ================================================== -->
+        <section id="scene-7" class="scene scene-story scene-sticker-special" data-scene="7">
+          <div class="scene-container">
+            
+            <div class="scene-badge-header special-badge">
+              <span class="chapter-number">Foto 06 dari 08 ⭐ Spesial</span>
+              <span class="chapter-title">Ekspresi Paling Menggemaskan!</span>
+            </div>
+
+            <div class="story-card sticker-special-card">
+              
+              <div class="sticker-instruction-pill">
+                <span>👇 Tap foto Alora untuk efek sticker loncat! 👇</span>
+              </div>
+
+              <!-- PHOTO STICKER: Real alora-06.jpg, uncropped, 8px solid white border, radius 20px -->
+              <div class="sticker-photo-frame" id="interactive-alora-sticker" title="Tap foto Alora!">
+                <img 
+                  src="./assets/alora-06.jpg" 
+                  alt="Foto asli Alora dengan ekspresi tertawa paling lucu dan menggemaskan" 
+                  class="sticker-img-uncropped gallery-lightbox-trigger"
+                  data-photo-index="5"
+                  data-photo-title="Ekspresi Menggemaskan Alora"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                  onerror="this.onerror=null; this.src='/assets/alora-06.jpg';"
+                />
+              </div>
+
+              <!-- Companion Mascot cheering below sticker -->
+              <div class="unicorn-cheering-companion unicorn-interactive" data-unicorn="true" title="Klik unicorn! 🦄">
+                <div class="cheering-bubble">Gemas sekali! 🦄🩷</div>
+                <svg viewBox="0 0 100 100" class="unicorn-svg-cheer" aria-hidden="true">
+                  <ellipse cx="50" cy="62" rx="26" ry="22" fill="#FFF5F8" stroke="#F8BBD0" stroke-width="2"/>
+                  <polygon points="50,14 45,28 55,28" fill="#FFD54F" stroke="#FFA726" stroke-width="1.2"/>
+                  <circle cx="50" cy="40" r="22" fill="#FFFFFF" stroke="#F8BBD0" stroke-width="2"/>
+                  <path d="M42,42 Q46,36 50,42" stroke="#4A3E47" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                  <path d="M52,42 Q56,36 60,42" stroke="#4A3E47" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                  <ellipse cx="38" cy="46" rx="3.5" ry="2" fill="#FF80AB" opacity="0.7"/>
+                  <ellipse cx="64" cy="46" rx="3.5" ry="2" fill="#FF80AB" opacity="0.7"/>
+                  <path d="M46,47 Q50,52 54,47" stroke="#E91E63" stroke-width="2" stroke-linecap="round" fill="none"/>
+                  <circle cx="28" cy="55" r="5" fill="#F8BBD0"/>
+                  <circle cx="72" cy="55" r="5" fill="#F8BBD0"/>
+                </svg>
+              </div>
+
+              <!-- EXACT SPECIFIED TEXT -->
+              <div class="story-prose-box text-center">
+                <p class="story-prose-body">
+                  Ekspresi lucu dan tingkah kecilmu menjadi kenangan yang ingin Papa dan Mama simpan selamanya.
+                </p>
+                <p class="story-prose-body story-prose-highlight text-emotional">
+                  Jangan cepat besar, ya, Sayang. 🥹🩷
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ================================================== -->
+        <!-- SCENE 8 — SENYUM TERAKHIR (FOTO 7: alora-07.jpg) -->
+        <!-- ================================================== -->
+        <section id="scene-8" class="scene scene-story" data-scene="8">
+          <div class="scene-container">
+            
+            <div class="scene-badge-header">
+              <span class="chapter-number">Foto 07 dari 08</span>
+              <span class="chapter-title">Momen Menggemaskan</span>
+            </div>
+
+            <div class="story-card">
+              <div class="card-polaroid-tab">🎀 Kuncir Dua Favorit 🎀</div>
+
+              <div class="natural-photo-frame">
+                <div class="zoom-cue-pill">🔍 Tap untuk memperbesar</div>
+                <img 
+                  src="./assets/alora-07.jpg" 
+                  alt="Alora dengan kuncir dua yang sangat lucu" 
+                  class="natural-scene-img gallery-lightbox-trigger"
+                  data-photo-index="6"
+                  data-photo-title="Kuncir Dua Favorit Alora"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                  onerror="this.onerror=null; this.src='/assets/alora-07.jpg';"
+                />
+              </div>
+
+              <!-- EXACT SPECIFIED TEXT -->
+              <div class="story-prose-box">
+                <p class="story-prose-body">
+                  Ekspresi lucu dan tingkah kecilmu menjadi kenangan yang ingin Papa dan Mama simpan selamanya.
+                </p>
+                <p class="story-prose-body story-prose-highlight">
+                  Jangan cepat besar, ya, Sayang.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ================================================== -->
+        <!-- SCENE 9 — SATU TAHUN (FOTO 8: alora-08.jpg) -->
+        <!-- ================================================== -->
+        <section id="scene-9" class="scene scene-story scene-milestone" data-scene="9">
+          <div class="scene-container">
+            
+            <div class="scene-badge-header milestone-badge">
+              <span class="chapter-number">Foto 08 dari 08 · Puncak Milestone</span>
+              <span class="chapter-title">Satu Tahun Penuh Berkah</span>
+            </div>
+
+            <div class="milestone-card">
+              
+              <div class="golden-crown-tag">👑 Selamat Ulang Tahun Pertama 👑</div>
+              
+              <div class="natural-photo-frame milestone-frame">
+                <div class="zoom-cue-pill">🔍 Tap untuk memperbesar</div>
+                <img 
+                  src="./assets/alora-08.jpg" 
+                  alt="Alora merayakan satu tahun usianya dengan penuh tawa bahagia" 
+                  class="natural-scene-img gallery-lightbox-trigger"
+                  data-photo-index="7"
+                  data-photo-title="Alora Genap 1 Tahun — Penuh Berkah"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                  onerror="this.onerror=null; this.src='/assets/alora-08.jpg';"
+                />
+              </div>
+
+              <!-- EXACT SPECIFIED TEXT -->
+              <div class="story-prose-box milestone-prose">
+                <p class="story-prose-body">
+                  Satu tahun bersamamu adalah hadiah terindah bagi Papa dan Mama.
+                </p>
+                <h3 class="milestone-wish">
+                  Selamat ulang tahun pertama, <span class="alora-snowball-inline">Alora</span>. 🎉
+                </h3>
+                <p class="story-prose-body story-prose-highlight doa-text">
+                  Semoga Allah selalu menjaga dan memberkahi setiap langkahmu. ❤️
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ================================================== -->
+        <!-- SCENE 10 — COUNTDOWN -->
+        <!-- ================================================== -->
+        <section id="scene-10" class="scene scene-countdown" data-scene="10">
+          <div class="scene-container">
+            
+            <div class="countdown-card">
+              
+              <div class="countdown-header">
+                <span class="countdown-kicker">HITUNG MUNDUR</span>
+                <h2 class="countdown-title">MENUJU HARI BAHAGIA</h2>
+                <div class="countdown-event-meta">
+                  <span class="cd-date">24 OKTOBER 2026</span>
+                  <span class="cd-sep">·</span>
+                  <span class="cd-time">15.00 WIB</span>
+                </div>
+              </div>
+
+              <!-- Realtime Countdown Grid -->
+              <div id="countdown-timer" class="countdown-grid" role="timer" aria-live="off">
+                
+                <div class="countdown-block">
+                  <div class="countdown-number" id="cd-days">00</div>
+                  <div class="countdown-label">HARI</div>
+                </div>
+
+                <div class="countdown-separator">:</div>
+
+                <div class="countdown-block">
+                  <div class="countdown-number" id="cd-hours">00</div>
+                  <div class="countdown-label">JAM</div>
+                </div>
+
+                <div class="countdown-separator">:</div>
+
+                <div class="countdown-block">
+                  <div class="countdown-number" id="cd-minutes">00</div>
+                  <div class="countdown-label">MENIT</div>
+                </div>
+
+                <div class="countdown-separator">:</div>
+
+                <div class="countdown-block">
+                  <div class="countdown-number" id="cd-seconds">00</div>
+                  <div class="countdown-label">DETIK</div>
+                </div>
+
+              </div>
+
+              <!-- Triggered celebration banner if target reached -->
+              <div id="countdown-celebration-banner" class="celebration-banner hidden">
+                <div class="banner-confetti-emoji">🎉 🦄 🎂 💖 🌸</div>
+                <h3 class="banner-title">Selamat Datang<br/>di Hari Bahagia Alora! 🎉</h3>
+                <p class="banner-subtitle">Acara sedang berlangsung. Terima kasih telah hadir!</p>
+              </div>
+
+              <!-- Calendar Reminder Action -->
+              <div class="calendar-action-box">
+                <a 
+                  id="google-calendar-btn"
+                  href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Ulang+Tahun+Pertama+Alora+Hazelika+Aderyn&dates=20261024T080000Z/20261024T120000Z&details=Undangan+Ulang+Tahun+Pertama+Alora+Hazelika+Aderyn.+Lokasi:+Rumah+Yoya,+Kp.+Babakan+Kemang,+RT+01/04,+Desa+Cihideung+Udik,+Kab.+Bogor&location=Rumah+Yoya,+Kp.+Babakan+Kemang,+RT+01/04,+Desa+Cihideung+Udik,+Kab.+Bogor" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="save-calendar-btn"
+                >
+                  <span class="btn-cal-icon">📅</span>
+                  <span>Simpan Pengingat di Google Calendar</span>
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ================================================== -->
+        <!-- SCENE 11 — DETAIL ACARA -->
+        <!-- ================================================== -->
+        <section id="scene-11" class="scene scene-event-details" data-scene="11">
+          <div class="scene-container">
+            
+            <div class="details-card">
+              
+              <div class="details-header">
+                <span class="decor-sparkle-line">🌸 ✨ 🌸</span>
+                <h2 class="details-title">Hari Bahagia Alora</h2>
+                <p class="details-subtitle">Waktu & Tempat Pelaksanaan</p>
+              </div>
+
+              <!-- Date & Time Box -->
+              <div class="info-block-row">
+                <div class="info-icon-bubble">
+                  <span>🗓️</span>
+                </div>
+                <div class="info-content-col">
+                  <h3 class="info-heading">WAKTU ACARA</h3>
+                  <p class="info-primary-text">Sabtu, 24 Oktober 2026</p>
+                  <p class="info-sub-text">15.00 WIB – selesai</p>
+                </div>
+              </div>
+
+              <!-- Location Box -->
+              <div class="info-block-row">
+                <div class="info-icon-bubble">
+                  <span>📍</span>
+                </div>
+                <div class="info-content-col">
+                  <h3 class="info-heading">LOKASI ACARA</h3>
+                  <p class="info-venue-name">RUMAH YOYA</p>
+                  <address class="info-address-text">
+                    Kp. Babakan Kemang, RT 01/04,<br/>
+                    Desa Cihideung Udik,<br/>
+                    Kab. Bogor
+                  </address>
+                </div>
+              </div>
+
+              <!-- Embedded Location Map Preview Card -->
+              <div class="map-preview-box">
+                <div class="map-graphic-pin">
+                  <span class="pin-pulse"></span>
+                  <span class="pin-icon">📍</span>
+                  <div class="pin-label">Rumah Yoya · Bogor</div>
+                </div>
+                <p class="map-coordinates-note">Koordinat: -6.565740, 106.711698</p>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="location-actions">
+                <a 
+                  id="maps-direction-btn"
+                  href="https://www.google.com/maps/@-6.5656616,106.711837,20z?entry=ttu&g_ep=EgoyMDI2MTAxOS4wIKXMDSoASAFQAw%3D%3D" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="btn-maps-primary"
+                >
+                  <span class="btn-icon">🗺️</span>
+                  <span>LIHAT LOKASI DI GOOGLE MAPS</span>
+                </a>
+                
+                <button id="copy-address-btn" class="btn-copy-address" aria-label="Salin alamat lengkap">
+                  <span id="copy-address-icon">📋</span>
+                  <span id="copy-address-label">Salin Alamat Lengkap</span>
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ================================================== -->
+        <!-- SCENE 12 — RSVP -->
+        <!-- ================================================== -->
+        <section id="scene-12" class="scene scene-rsvp" data-scene="12">
+          <div class="scene-container">
+            
+            <div class="rsvp-card">
+              
+              <div class="rsvp-crest">
+                <span class="rsvp-envelope-icon">💌</span>
+              </div>
+
+              <h2 class="rsvp-title">
+                Akan Hadir di<br/>Hari Bahagia Alora?
+              </h2>
+
+              <div class="rsvp-guest-box">
+                <span class="rsvp-guest-tag">Konfirmasi Kehadiran Untuk:</span>
+                <p class="rsvp-guest-name" id="rsvp-guest-name">DEAR GUEST</p>
+              </div>
+
+              <p class="rsvp-instruction">
+                Kehadiran dan doa restumu adalah kado terindah bagi Alora. Silakan konfirmasi kehadiran melalui tombol di bawah:
+              </p>
+
+              <!-- RSVP Response Buttons -->
+              <div class="rsvp-button-group">
+                
+                <!-- ATTEND BUTTON -->
+                <button id="rsvp-yes-btn" class="rsvp-btn rsvp-yes" aria-label="Konfirmasi hadir ke acara Alora via WhatsApp">
+                  <span class="rsvp-btn-heart">🩷</span>
+                  <span class="rsvp-btn-text">YA, SAYA AKAN HADIR</span>
+                </button>
+
+                <!-- DECLINE BUTTON -->
+                <button id="rsvp-no-btn" class="rsvp-btn rsvp-no" aria-label="Konfirmasi tidak bisa hadir ke acara Alora via WhatsApp">
+                  <span class="rsvp-btn-heart">🤍</span>
+                  <span class="rsvp-btn-text">MAAF, SAYA TIDAK BISA HADIR</span>
+                </button>
+
+              </div>
+
+              <div class="rsvp-footer-note">
+                <p>Konfirmasi akan terhubung langsung ke WhatsApp keluarga Alora.</p>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ================================================== -->
+        <!-- SCENE 13 — PENUTUP -->
+        <!-- ================================================== -->
+        <section id="scene-13" class="scene scene-penutup" data-scene="13">
+          <div class="scene-container">
+            
+            <div class="closing-card">
+              
+              <div class="closing-stars" aria-hidden="true">✨ 🌸 ✨</div>
+
+              <!-- EXACT SPECIFIED TEXT -->
+              <h2 class="closing-title">
+                TERIMA KASIH, <span class="guest-name-closing guest-colored">DEAR GUEST</span>
+              </h2>
+
+              <p class="closing-body-text">
+                Sudah menjadi bagian dari hari istimewa Alora.
+              </p>
+
+              <p class="closing-body-text closing-highlight">
+                Kehadiran dan doa baikmu sangat berarti bagi kami. ❤️
+              </p>
+
+              <!-- EXACT SPECIFIED CLOSING: Dengan penuh cinta, Alora Hazelika Aderyn -->
+              <div class="closing-signature-block">
+                <p class="signature-sub">Dengan penuh cinta,</p>
+                <div class="closing-name-lockup">
+                  <span class="closing-snowball-name">Alora</span>
+                  <span class="closing-regular-name">Hazelika Aderyn</span>
+                </div>
+              </div>
+
+              <!-- Waving Pink Unicorn Mascot -->
+              <div class="closing-unicorn-wrapper unicorn-interactive" data-unicorn="true" title="Klik aku! 🦄">
+                <div class="waving-speech-bubble">Sampai jumpa ya! 👋🦄</div>
+                <svg viewBox="0 0 120 120" class="unicorn-svg-waving" aria-label="Mascot Pink Unicorn melambaikan tangan">
+                  <ellipse cx="60" cy="74" rx="30" ry="26" fill="#FFF7FA" stroke="#F8BBD0" stroke-width="2.5"/>
+                  <ellipse cx="44" cy="97" rx="7" ry="5.5" fill="#F8BBD0"/>
+                  <ellipse cx="76" cy="97" rx="7" ry="5.5" fill="#F8BBD0"/>
+                  <path d="M28,74 C16,68 18,86 28,82" stroke="#CE93D8" stroke-width="5" stroke-linecap="round" fill="none"/>
+                  <circle cx="60" cy="46" r="26" fill="#FFFFFF" stroke="#F8BBD0" stroke-width="2.5"/>
+                  <polygon points="60,12 54,30 66,30" fill="url(#closingHornGrad)" stroke="#FFA726" stroke-width="1.5"/>
+                  <path d="M42,28 C45,18 52,22 50,32" stroke="#F48FB1" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+                  <path d="M70,28 C67,18 60,22 62,32" stroke="#CE93D8" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+                  <path d="M46,47 Q50,42 54,47" stroke="#4A3E47" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+                  <path d="M66,47 Q70,42 74,47" stroke="#4A3E47" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+                  <ellipse cx="43" cy="52" rx="4.5" ry="2.5" fill="#FF80AB" opacity="0.7"/>
+                  <ellipse cx="77" cy="52" rx="4.5" ry="2.5" fill="#FF80AB" opacity="0.7"/>
+                  <path d="M57,54 Q60,58 63,54" stroke="#E91E63" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+                  <g class="waving-hoof-group">
+                    <path d="M78,66 Q92,52 96,62" stroke="#F8BBD0" stroke-width="7" stroke-linecap="round" fill="none"/>
+                    <circle cx="96" cy="62" r="4.5" fill="#F48FB1"/>
+                  </g>
+                  <defs>
+                    <linearGradient id="closingHornGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#FFF9C4" />
+                      <stop offset="50%" stop-color="#FFD54F" />
+                      <stop offset="100%" stop-color="#FFB74D" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+
+              <!-- BACK TO TOP BUTTON -->
+              <div class="back-to-top-box">
+                <button id="back-to-top-btn" class="back-to-top-btn" aria-label="Kembali ke awal undangan">
+                  <span class="btn-top-arrow">⬆️</span>
+                  <span>KEMBALI KE ATAS</span>
+                </button>
+              </div>
+
+              <!-- MANDATORY FOOTER SIGNATURE: Design by Papah Jamal -->
+              <div class="closing-footer-credits">
+                <p class="papah-jamal-credit">Design by Papah Jamal</p>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+      </main>
+
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
